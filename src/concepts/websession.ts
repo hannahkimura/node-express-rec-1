@@ -28,7 +28,15 @@ export default class WebSessionConcept {
     // Hint: Take a look at how the "end" function makes sure the user is logged in. Keep in mind that a
     // synchronization like starting a session should just consist of a series of actions that may throw
     // exceptions and should not have its own control flow.
-    session.user = username;
+    console.log(session.user);
+    if (session.user!==undefined) {
+      throw new Error("You need to log out");
+    }
+    else {
+      session.user = username;
+      console.log("Here");
+    }
+    
   }
 
   getUser(session: WebSessionDoc) {
